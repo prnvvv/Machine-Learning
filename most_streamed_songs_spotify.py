@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import r2_score
 
 filePath = r"C:\Users\Prannavakhanth\Documents\Machine-Learning\Most Streamed Spotify Songs 2024.csv"
 
@@ -30,4 +31,12 @@ trainX, testX, trainy, testy = train_test_split(X, y, test_size = 0.25, random_s
 
 model = RandomForestClassifier(random_state = 1)
 
+model.fit(trainX, trainy)
 
+prediction = model.predict(testX)
+
+accuracy = model.score(testX, testy)
+print(f'Accuracy: {accuracy:.2f}')
+
+r2 = r2_score(testy, predictions)
+print(f'R-squared score: {r2:.2f}')

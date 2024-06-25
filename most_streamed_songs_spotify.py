@@ -11,4 +11,14 @@ except UnicodeDecodeError:
     except UnicodeDecodeError:
         dataFrame = pd.read_csv(filePath, encoding='cp1252')
 
-print(dataFrame.columns)
+X = dataFrame[['Artist','All Time Rank', 'Spotify Streams',
+       'Spotify Playlist Count', 'Spotify Playlist Reach',
+       'Spotify Popularity', 'YouTube Views', 'YouTube Likes', 'TikTok Posts',
+       'TikTok Likes', 'TikTok Views', 'YouTube Playlist Reach',
+       'Apple Music Playlist Count', 'AirPlay Spins', 'SiriusXM Spins',
+       'Deezer Playlist Count', 'Deezer Playlist Reach',
+       'Amazon Playlist Count', 'Pandora Streams', 'Pandora Track Stations',
+       'Soundcloud Streams', 'Shazam Counts', 'Explicit Track']]
+
+y = dataFrame['Track Score']
+

@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
 
 filePath = r"C:\Users\Prannavakhanth\Documents\Machine-Learning\Most Streamed Spotify Songs 2024.csv"
 
@@ -11,6 +12,8 @@ except UnicodeDecodeError:
         dataFrame = pd.read_csv(filePath, encoding='latin1')
     except UnicodeDecodeError:
         dataFrame = pd.read_csv(filePath, encoding='cp1252')
+
+dataFrame = dataFrame.dropna(axis = 0)
 
 X = dataFrame[['Artist','All Time Rank', 'Spotify Streams',
        'Spotify Playlist Count', 'Spotify Playlist Reach',
@@ -24,5 +27,7 @@ X = dataFrame[['Artist','All Time Rank', 'Spotify Streams',
 y = dataFrame['Track Score']
 
 trainX, testX, trainy, testy = train_test_split(X, y, test_size = 0.25, random_state = 1)
+
+model = RandomForestClassifier(random_state = 1)
 
 

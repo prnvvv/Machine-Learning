@@ -38,5 +38,5 @@ prediction = model.predict(testX)
 accuracy = model.score(testX, testy)
 print(f'Accuracy: {accuracy:.2f}')
 
-r2 = r2_score(testy, predictions)
+r2 = r2_score(testy, prediction)
 print(f'R-squared score: {r2:.2f}')

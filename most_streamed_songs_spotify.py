@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 filePath = r"C:\Users\Prannavakhanth\Documents\Machine-Learning\Most Streamed Spotify Songs 2024.csv"
 
@@ -21,4 +22,6 @@ X = dataFrame[['Artist','All Time Rank', 'Spotify Streams',
        'Soundcloud Streams', 'Shazam Counts', 'Explicit Track']]
 
 y = dataFrame['Track Score']
+
+
 

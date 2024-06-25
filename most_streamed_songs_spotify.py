@@ -23,5 +23,6 @@ X = dataFrame[['Artist','All Time Rank', 'Spotify Streams',
 
 y = dataFrame['Track Score']
 
+trainX, testX, trainy, testy = train_test_split(X, y, test_size = 0.25, random_state = 1)
 
 
